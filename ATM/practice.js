@@ -1,18 +1,34 @@
+"use strict";
 // IMPORTING MODULES
-import inquirer from "inquirer";
-import chalk from "chalk";
-import chalkAnimation from "chalk-animation";
+var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, generator) {
+    function adopt(value) { return value instanceof P ? value : new P(function (resolve) { resolve(value); }); }
+    return new (P || (P = Promise))(function (resolve, reject) {
+        function fulfilled(value) { try { step(generator.next(value)); } catch (e) { reject(e); } }
+        function rejected(value) { try { step(generator["throw"](value)); } catch (e) { reject(e); } }
+        function step(result) { result.done ? resolve(result.value) : adopt(result.value).then(fulfilled, rejected); }
+        step((generator = generator.apply(thisArg, _arguments || [])).next());
+    });
+};
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const inquirer_1 = __importDefault(require("inquirer"));
+const chalk_1 = __importDefault(require("chalk"));
+const chalk_animation_1 = __importDefault(require("chalk-animation"));
 // RAINBOW TITLE
 const sleep = () => {
     return new Promise((res) => {
         setTimeout(res, 2000);
     });
 };
-async function welcome() {
-    let rainbowTitle = chalkAnimation.rainbow("Welcome To Typescript Powered ATM");
-    rainbowTitle.start();
-    await sleep();
-    rainbowTitle.stop();
+function welcome() {
+    return __awaiter(this, void 0, void 0, function* () {
+        let rainbowTitle = chalk_animation_1.default.rainbow("Welcome To Typescript Powered ATM");
+        rainbowTitle.start();
+        yield sleep();
+        rainbowTitle.stop();
+    });
 }
 await welcome();
 let accounts = [];
@@ -35,14 +51,14 @@ accounts.push({
     customerBalance: 37000
 });
 //  ASKING FOR USERNAME AND PASSWORD
-let userNameInput = await inquirer.prompt([
+let userNameInput = await inquirer_1.default.prompt([
     {
         name: "inputUser",
         type: "string",
         message: "Input User Name :"
     }
 ]);
-let userpasswordInput = await inquirer.prompt([
+let userpasswordInput = await inquirer_1.default.prompt([
     {
         name: "inputPassword",
         type: "number",
@@ -57,9 +73,9 @@ if (userNameInput.inputUser == "Ali" || userNameInput.inputUser == "ali" && user
     userNameInput.inputUser == "Usman" || userNameInput.inputUser == "usman" && userpasswordInput.inputPassword == 3333) {
     // FOR ALI'S ACCOUNT
     if (userNameInput.inputUser == "Ali" || userNameInput.inputUser == "ali" && userpasswordInput.inputPassword == 1111) {
-        console.log(chalk.blue("Welcome Ali Amir"));
+        console.log(chalk_1.default.blue("Welcome Ali Amir"));
         // TAKING OPERATION INPUT
-        let userOperation = await inquirer.prompt([
+        let userOperation = await inquirer_1.default.prompt([
             {
                 type: "list",
                 name: "Service",
@@ -69,7 +85,7 @@ if (userNameInput.inputUser == "Ali" || userNameInput.inputUser == "ali" && user
         ]);
         if (userOperation.Service == "CASH WITHDRAWAL") {
             // TAKING AMOUNT INPUT
-            let service = await inquirer.prompt([
+            let service = await inquirer_1.default.prompt([
                 {
                     name: "amount",
                     type: "number",
@@ -77,14 +93,14 @@ if (userNameInput.inputUser == "Ali" || userNameInput.inputUser == "ali" && user
                 },
             ]);
             console.log("--------------------------------------------------------");
-            console.log(chalk.bold.green(" You Have Withdrawed $ " + service.amount + " Sucessfully"));
+            console.log(chalk_1.default.bold.green(" You Have Withdrawed $ " + service.amount + " Sucessfully"));
             console.log("--------------------------------------------------------");
-            console.log(chalk.bold.green("Your Remaining Balance Is $ " + `${accounts[0].customerBalance - service.amount}`));
+            console.log(chalk_1.default.bold.green("Your Remaining Balance Is $ " + `${accounts[0].customerBalance - service.amount}`));
             console.log("--------------------------------------------------------");
         }
         else if (userOperation.Service == "CASH DEPOSIT") {
             // TAKING AMOUNT INPUT
-            let service = await inquirer.prompt([
+            let service = await inquirer_1.default.prompt([
                 {
                     name: "amount",
                     type: "number",
@@ -92,27 +108,27 @@ if (userNameInput.inputUser == "Ali" || userNameInput.inputUser == "ali" && user
                 },
             ]);
             console.log("--------------------------------------------------------");
-            console.log(chalk.bold.green(" You Have Deposited $ " + service.amount + " Sucessfully"));
+            console.log(chalk_1.default.bold.green(" You Have Deposited $ " + service.amount + " Sucessfully"));
             console.log("--------------------------------------------------------");
-            console.log(chalk.bold.green("Your New Balance Is $ " + `${accounts[0].customerBalance + service.amount}`));
+            console.log(chalk_1.default.bold.green("Your New Balance Is $ " + `${accounts[0].customerBalance + service.amount}`));
             console.log("--------------------------------------------------------");
         }
         else if (userOperation.Service == "BALANCE CHECK") {
             console.log("--------------------------------------------------------");
-            console.log(chalk.bold.green("Your Current Balance Is $ " + accounts[0].customerBalance));
+            console.log(chalk_1.default.bold.green("Your Current Balance Is $ " + accounts[0].customerBalance));
             console.log("--------------------------------------------------------");
         }
         else {
             console.log("--------------------------------------------------------");
-            console.log(chalk.bgRed("PLEASE CHOOSE A VALID OPERATION"));
+            console.log(chalk_1.default.bgRed("PLEASE CHOOSE A VALID OPERATION"));
             console.log("--------------------------------------------------------");
         }
     }
     // FOR HARIS'S ACCOUNT
     if (userNameInput.inputUser == "Haris" || userNameInput.inputUser == "haris" && userpasswordInput.inputPassword == 2222) {
-        console.log(chalk.blue("Welcome Haris Ansari"));
+        console.log(chalk_1.default.blue("Welcome Haris Ansari"));
         // TAKING OPERATION INPUT
-        let userOperation = await inquirer.prompt([
+        let userOperation = await inquirer_1.default.prompt([
             {
                 type: "list",
                 name: "Service",
@@ -122,7 +138,7 @@ if (userNameInput.inputUser == "Ali" || userNameInput.inputUser == "ali" && user
         ]);
         if (userOperation.Service == "CASH WITHDRAWAL") {
             // TAKING AMOUNT INPUT
-            let service = await inquirer.prompt([
+            let service = await inquirer_1.default.prompt([
                 {
                     name: "amount",
                     type: "number",
@@ -130,14 +146,14 @@ if (userNameInput.inputUser == "Ali" || userNameInput.inputUser == "ali" && user
                 },
             ]);
             console.log("--------------------------------------------------------");
-            console.log(chalk.bold.green(" You Have Withdrawed $ " + service.amount + " Sucessfully"));
+            console.log(chalk_1.default.bold.green(" You Have Withdrawed $ " + service.amount + " Sucessfully"));
             console.log("--------------------------------------------------------");
-            console.log(chalk.bold.green("Your Remaining Balance Is $ " + `${accounts[1].customerBalance - service.amount}`));
+            console.log(chalk_1.default.bold.green("Your Remaining Balance Is $ " + `${accounts[1].customerBalance - service.amount}`));
             console.log("--------------------------------------------------------");
         }
         else if (userOperation.Service == "CASH DEPOSIT") {
             // TAKING AMOUNT INPUT
-            let service = await inquirer.prompt([
+            let service = await inquirer_1.default.prompt([
                 {
                     name: "amount",
                     type: "number",
@@ -145,27 +161,27 @@ if (userNameInput.inputUser == "Ali" || userNameInput.inputUser == "ali" && user
                 },
             ]);
             console.log("--------------------------------------------------------");
-            console.log(chalk.bold.green(" You Have Deposited $ " + service.amount + " Sucessfully"));
+            console.log(chalk_1.default.bold.green(" You Have Deposited $ " + service.amount + " Sucessfully"));
             console.log("--------------------------------------------------------");
-            console.log(chalk.bold.green("Your New Balance Is $ " + `${accounts[1].customerBalance + service.amount}`));
+            console.log(chalk_1.default.bold.green("Your New Balance Is $ " + `${accounts[1].customerBalance + service.amount}`));
             console.log("--------------------------------------------------------");
         }
         else if (userOperation.Service == "BALANCE CHECK") {
             console.log("--------------------------------------------------------");
-            console.log(chalk.bold.green("Your Current Balance Is $ " + accounts[1].customerBalance));
+            console.log(chalk_1.default.bold.green("Your Current Balance Is $ " + accounts[1].customerBalance));
             console.log("--------------------------------------------------------");
         }
         else {
             console.log("--------------------------------------------------------");
-            console.log(chalk.bgRed("PLEASE CHOOSE A VALID OPERATION"));
+            console.log(chalk_1.default.bgRed("PLEASE CHOOSE A VALID OPERATION"));
             console.log("--------------------------------------------------------");
         }
     }
     // FOR USMAN'S ACCOUNT 
     if (userNameInput.inputUser == "Usman" || userNameInput.inputUser == "usman" && userpasswordInput.inputPassword == 3333) {
-        console.log(chalk.blue("Welcome Usman Khan"));
+        console.log(chalk_1.default.blue("Welcome Usman Khan"));
         // TAKING OPERATION INPUT
-        let userOperation = await inquirer.prompt([
+        let userOperation = await inquirer_1.default.prompt([
             {
                 type: "list",
                 name: "Service",
@@ -175,7 +191,7 @@ if (userNameInput.inputUser == "Ali" || userNameInput.inputUser == "ali" && user
         ]);
         if (userOperation.Service == "CASH WITHDRAWAL") {
             // TAKING AMOUNT INPUT
-            let service = await inquirer.prompt([
+            let service = await inquirer_1.default.prompt([
                 {
                     name: "amount",
                     type: "number",
@@ -183,14 +199,14 @@ if (userNameInput.inputUser == "Ali" || userNameInput.inputUser == "ali" && user
                 },
             ]);
             console.log("--------------------------------------------------------");
-            console.log(chalk.bold.green(" You Have Withdrawed $ " + service.amount + " Sucessfully"));
+            console.log(chalk_1.default.bold.green(" You Have Withdrawed $ " + service.amount + " Sucessfully"));
             console.log("--------------------------------------------------------");
-            console.log(chalk.bold.green("Your Remaining Balance Is $" + `${accounts[2].customerBalance - service.amount}`));
+            console.log(chalk_1.default.bold.green("Your Remaining Balance Is $" + `${accounts[2].customerBalance - service.amount}`));
             console.log("--------------------------------------------------------");
         }
         else if (userOperation.Service == "CASH DEPOSIT") {
             // TAKING AMOUNT INPUT
-            let service = await inquirer.prompt([
+            let service = await inquirer_1.default.prompt([
                 {
                     name: "amount",
                     type: "number",
@@ -198,24 +214,24 @@ if (userNameInput.inputUser == "Ali" || userNameInput.inputUser == "ali" && user
                 },
             ]);
             console.log("--------------------------------------------------------");
-            console.log(chalk.bold.green(" You Have Deposited $ " + service.amount + " Sucessfully"));
+            console.log(chalk_1.default.bold.green(" You Have Deposited $ " + service.amount + " Sucessfully"));
             console.log("--------------------------------------------------------");
-            console.log(chalk.bold.green("Your New Balance Is $ " + `${accounts[2].customerBalance + service.amount}`));
+            console.log(chalk_1.default.bold.green("Your New Balance Is $ " + `${accounts[2].customerBalance + service.amount}`));
             console.log("--------------------------------------------------------");
         }
         else if (userOperation.Service == "BALANCE CHECK") {
             console.log("--------------------------------------------------------");
-            console.log(chalk.bold.green("Your Current Balance Is $ " + accounts[2].customerBalance));
+            console.log(chalk_1.default.bold.green("Your Current Balance Is $ " + accounts[2].customerBalance));
             console.log("--------------------------------------------------------");
         }
         else {
             console.log("--------------------------------------------------------");
-            console.log(chalk.bgRed("PLEASE CHOOSE A VALID OPERATION"));
+            console.log(chalk_1.default.bgRed("PLEASE CHOOSE A VALID OPERATION"));
             console.log("--------------------------------------------------------");
         }
     }
     ;
 }
 else {
-    console.log(chalk.red("Please Enter Valid Details"));
+    console.log(chalk_1.default.red("Please Enter Valid Details"));
 }

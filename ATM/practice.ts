@@ -92,7 +92,7 @@ let userpasswordInput = await inquirer.prompt([
 
 
 if (
-    userNameInput.inputUser== "Ali"   || userNameInput.inputUser == "ali"   && userpasswordInput.inputPassword == 1111 ||
+    userNameInput.inputUser == "Ali"   || userNameInput.inputUser == "ali"   && userpasswordInput.inputPassword == 1111 ||
 
     userNameInput.inputUser == "Haris" || userNameInput.inputUser == "haris" && userpasswordInput.inputPassword == 2222 ||
 

@@ -1,7 +1,6 @@
 // class name {
 //     constructor(parameters) {
 
-import { countReset } from "console";
 
 //     }
 // }b
@@ -83,18 +82,17 @@ student1.course = teacher.course;
 const student2: Student = new Student();
 student2.name = "student2";
 student2.course = teacher.course;
-student2.rollNumber = 3;
+student2.rollNumber = 2;
 
 const student3: Student = new Student();
 student3.name = "student3";
 student3.course = teacher.course;
 student3.rollNumber = 3;
 
-
 const course: Course = new Course();
 course.classTeacher = teacher;
 course.Timing = teacher.timing;
-const std_Arr:Student[]= [student1,student2,student3]
-course.students=std_Arr
+const std_Arr: Student[] = [student1, student2, student3];
+course.students = std_Arr;
 
 console.log(course);
